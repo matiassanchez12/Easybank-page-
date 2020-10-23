@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import Header from './components/header';
+import Presentation from './components/presentation';
+import Whysection from './components/whysection';
+import LatestArticles from './components/latest-article';
+import Footer from './components/footer';
+
 import './App.css';
 
-function App() {
+function App () {
+  const [isOpenDropbox, setIsOpenDropbox] = useState (false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={isOpenDropbox ? 'menuIsOpen' : 'menuIsClose'}>
+      <Header
+        isOpenDropbox={isOpenDropbox}
+        setIsOpenDropbox={setIsOpenDropbox}
+      />
+      <Presentation />
+      <Whysection />
+      <LatestArticles />
+      <Footer />
     </div>
   );
 }
