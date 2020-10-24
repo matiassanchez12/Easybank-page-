@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import {Slide} from 'react-awesome-reveal';
 import Wrapper from './wrapper';
+import {Link} from 'react-router-dom';
+
 const HeaderStyled = styled.div`
     padding: 1em 0;
     align-items: center;
@@ -82,6 +84,7 @@ const HeaderStyled = styled.div`
       }
       .logo{
         grid-area: logo;
+        cursor:pointer;
       }
       .icon-close{
         display:none;
@@ -93,7 +96,7 @@ const HeaderStyled = styled.div`
         padding:0;
         display:flex;
         list-style: none;
-        li{
+        .link-style{
           margin: 0 .9em;
           font-size: 1em;
           cursor:pointer;
@@ -101,7 +104,7 @@ const HeaderStyled = styled.div`
           border-bottom: 2px solid transparent;
           transition: 0.7s ease-out;
         }
-        li:hover{
+        .link-style:hover{
           border-top: 2px solid coral;
           border-bottom: 2px solid coral;
         }
@@ -121,6 +124,7 @@ const HeaderStyled = styled.div`
           color:white;
           }
       }
+}
 `;
 
 export default function Header (props) {
@@ -129,7 +133,6 @@ export default function Header (props) {
       <Wrapper>
         <div className="header-container">
           <a className="logo" href="/" />
-
           <div className={props.isOpenDropbox ? 'dropbox-open' : 'dropbox'}>
             {props.isOpenDropbox
               ? <label
@@ -156,11 +159,15 @@ export default function Header (props) {
           </div>
           <div className="options-container">
             <ul>
-              <li>Home</li>
-              <li>About</li>
-              <li>Contact</li>
-              <li>Blog</li>
-              <li>Careers</li>
+              <li>
+                <Link to="/">
+                  Home
+                </Link>
+              </li>
+              <li> About</li>
+              <Link to="/contact"><li className="link-style">Contact</li></Link>
+              <li>          <Link className="link-style">Blog</Link> </li>
+              <li>          <Link>Careers</Link> </li>
             </ul>
           </div>
           <div className="button-container">

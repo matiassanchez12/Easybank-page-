@@ -1,25 +1,28 @@
 import React, {useState} from 'react';
+import Home from './pages/home';
+import Contact from './pages/contact';
 import Header from './components/header';
-import Presentation from './components/presentation';
-import Whysection from './components/whysection';
-import LatestArticles from './components/latest-article';
 import Footer from './components/footer';
-
+import {Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import './App.css';
 
 function App () {
   const [isOpenDropbox, setIsOpenDropbox] = useState (false);
 
   return (
-    <div className={isOpenDropbox ? 'menuIsOpen' : 'menuIsClose'}>
-      <Header
-        isOpenDropbox={isOpenDropbox}
-        setIsOpenDropbox={setIsOpenDropbox}
-      />
-      <Presentation />
-      <Whysection />
-      <LatestArticles />
-      <Footer />
+    <div>
+      <Router>
+        <Header
+          isOpenDropbox={isOpenDropbox}
+          setIsOpenDropbox={setIsOpenDropbox}
+        />
+        <div>
+          <Route exact path="/" component={Home} />
+          <Route path="/contact" component={Contact} />
+        </div>
+        <Footer />
+      </Router>
     </div>
   );
 }

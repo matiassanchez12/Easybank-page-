@@ -46,6 +46,7 @@ const StyledPresentation = styled.div`
   }
   @media screen and (min-width: 1024px){
     padding-bottom: 0;
+    background: var(--white);
     .container{
       display: grid;
       grid-template-columns: 1fr 2fr;
@@ -94,7 +95,7 @@ export default function Presentation () {
   return (
     <StyledPresentation>
       <Wrapper>
-        <div className="container">
+        <div className="container" id="presentation">
           <div className="img-container">
             <img
               src="https://res.cloudinary.com/matiaskaufman/image/upload/v1602815701/img/image-mockups_mpbdzf.png"

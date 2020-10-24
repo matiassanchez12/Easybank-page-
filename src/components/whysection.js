@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Wrapper from './wrapper';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import {animateScroll as scroll} from 'react-scroll';
 
 const StyledSection = styled.div`
     background: var(--gray);
@@ -37,6 +38,20 @@ const StyledSection = styled.div`
        p{
          line-height:1.7;
        }
+    }
+    .icon-arrowup{
+      position: fixed;
+      top: 85%;
+      left: 92%;
+      font-size: 3em;
+      color: black;
+      z-index: 3;
+      transition: 0.2s ease-out;
+      cursor:pointer;
+    }
+    .icon-arrowup:hover{
+      color: #ff9800c4;
+      font-size: 3.2em;
     }
   @media screen and (min-width: 1024px){
     .why-info{
@@ -73,7 +88,7 @@ export default function Whysection () {
   return (
     <StyledSection>
       <Wrapper>
-        <div className="why-container">
+        <div className="why-container" id="whysection">
           <div className="why-info">
             <h1>Why choose Easybank?</h1>
             <p>
@@ -125,6 +140,9 @@ export default function Whysection () {
                 been easier.
               </p>
             </div>
+          </div>
+          <div className="icon-arrowup" onClick={() => scroll.scrollToTop ()}>
+            <i class="fas fa-arrow-alt-circle-up" />
           </div>
         </div>
       </Wrapper>
