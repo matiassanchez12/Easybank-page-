@@ -50,7 +50,7 @@ const StyledSection = styled.div`
       cursor:pointer;
     }
     .icon-arrowup:hover{
-      color: #ff9800c4;
+      color: #ffaf38;
       font-size: 3.2em;
     }
   @media screen and (min-width: 1024px){

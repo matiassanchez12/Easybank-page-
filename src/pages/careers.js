@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import Wrapper from '../components/wrapper';
 
-const ContactStyled = styled.div`
+const CareersStyled = styled.div`
     h1{
       padding: 5em;
     }
@@ -11,11 +12,11 @@ const ContactStyled = styled.div`
 export default function Contact () {
   return (
     <div>
-      <ContactStyled>
+      <CareersStyled>
         <Wrapper>
-          <h1>Contact</h1>
+          <h1>Careers</h1>
         </Wrapper>
-      </ContactStyled>
+      </CareersStyled>
     </div>
   );
 }

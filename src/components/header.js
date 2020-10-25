@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Slide} from 'react-awesome-reveal';
 import Wrapper from './wrapper';
@@ -96,17 +96,22 @@ const HeaderStyled = styled.div`
         padding:0;
         display:flex;
         list-style: none;
-        .link-style{
+        li{
           margin: 0 .9em;
           font-size: 1em;
           cursor:pointer;
           border-top: 2px solid transparent;
           border-bottom: 2px solid transparent;
           transition: 0.7s ease-out;
+          a{
+            text-decoration: none;
+            color: inherit;
+          }
         }
-        .link-style:hover{
+        li:hover{
           border-top: 2px solid coral;
           border-bottom: 2px solid coral;
+        }
         }
         }
       }
@@ -127,24 +132,25 @@ const HeaderStyled = styled.div`
 }
 `;
 
-export default function Header (props) {
+export default function Header () {
+  const [isOpenDropbox, setIsOpenDropbox] = useState (false);
   return (
     <HeaderStyled>
       <Wrapper>
         <div className="header-container">
-          <a className="logo" href="/" />
-          <div className={props.isOpenDropbox ? 'dropbox-open' : 'dropbox'}>
-            {props.isOpenDropbox
+          <Link to="/" className="logo" />
+          <div className={isOpenDropbox ? 'dropbox-open' : 'dropbox'}>
+            {isOpenDropbox
               ? <label
                   className="icon-open"
                   onClick={() => {
-                    props.setIsOpenDropbox (!props.isOpenDropbox);
+                    setIsOpenDropbox (!isOpenDropbox);
                   }}
                 />
               : <label
                   className="icon-close"
                   onClick={() => {
-                    props.setIsOpenDropbox (!props.isOpenDropbox);
+                    setIsOpenDropbox (!isOpenDropbox);
                   }}
                 />}
             <Slide>
@@ -159,15 +165,11 @@ export default function Header (props) {
           </div>
           <div className="options-container">
             <ul>
-              <li>
-                <Link to="/">
-                  Home
-                </Link>
-              </li>
-              <li> About</li>
-              <Link to="/contact"><li className="link-style">Contact</li></Link>
-              <li>          <Link className="link-style">Blog</Link> </li>
-              <li>          <Link>Careers</Link> </li>
+              <li className="link-style"><Link to="/">Home</Link></li>
+              <li className="link-style"><Link to="/about">About</Link></li>
+              <li className="link-style"><Link to="/contact">Contact</Link></li>
+              <li className="link-style"><Link to="/blog">Blog</Link></li>
+              <li className="link-style"><Link to="/careers">Careers</Link></li>
             </ul>
           </div>
           <div className="button-container">

@@ -53,6 +53,7 @@ const StyledPresentation = styled.div`
       grid-template-rows: auto auto;
       grid-template-areas: "text images"
                            "button images";
+      background: var(--white);
       padding-bottom: 0;
       .img-container{
         display:block;

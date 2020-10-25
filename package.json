@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.2.1",
     "aos": "^2.3.4",
     "react": "^16.14.0",
+    "react-animated-button": "^0.2.6",
     "react-aos": "^1.0.1",
     "react-awesome-reveal": "^3.3.1",
     "react-dom": "^16.14.0",
