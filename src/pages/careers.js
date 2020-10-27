@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Wrapper from '../components/wrapper';
 
 const CareersStyled = styled.div`
-    h1{
+    .elh1{
       padding: 5em;
     }
 `;
@@ -14,7 +14,7 @@ export default function Contact () {
     <div>
       <CareersStyled>
         <Wrapper>
-          <h1>Careers</h1>
+          <h1 className="elh1">Careers</h1>
         </Wrapper>
       </CareersStyled>
     </div>
