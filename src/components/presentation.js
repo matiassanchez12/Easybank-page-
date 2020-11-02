@@ -42,7 +42,7 @@ const StyledPresentation = styled.div`
     border-radius: 1.5em;
     background: linear-gradient(to right, var(--limeGreen) 0%, var(--rightCyan) 100%);
     margin-top: 1.5em;
-    
+    outline:none;
   }
   @media screen and (min-width: 1024px){
     padding-bottom: 0;
@@ -86,7 +86,7 @@ const StyledPresentation = styled.div`
         grid-area: button;
         align-self: start;
         justify-self: start;
-         cursor:pointer;
+        cursor:pointer;
       }
     }
   }

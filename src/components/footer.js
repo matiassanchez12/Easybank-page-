@@ -63,6 +63,7 @@ const FooterStyled = styled.div`
     color: white;
     padding: 0.9em 2.2em;
     background-image: linear-gradient(to right, var(--limeGreen) 0%, var(--rightCyan) 100%);
+    outline: none;
   }
   }
   .rights{

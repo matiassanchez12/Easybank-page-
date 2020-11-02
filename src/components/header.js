@@ -76,6 +76,9 @@ const HeaderStyled = styled.div`
       padding-bottom: 2em;
     }
     }
+    button{
+      display:none;
+    }
     @media screen and (min-width: 1024px){
       .header-container{
         display:grid;
@@ -114,25 +117,29 @@ const HeaderStyled = styled.div`
         }
         }
         }
-      }
-      .button-container{
-          grid-area: button;
-          justify-self:end;
-          display:block;
-          button{
-          border-radius: 1.8em;
-          padding: 1em 2.6em;
-          font-size: 1em;
-          border:none;
-          cursor:pointer;
-          background:linear-gradient(to right, var(--limeGreen) 0%, var(--rightCyan) 100%);;
-          color:white;
+        button{
+            grid-area: button;
+            justify-self:end;
+            display:block;
+            border-radius: 180px;
+            height: 100%;
+            padding: 1em 2.6em;
+            border: none;
+            cursor: pointer;
+            background: #d0c0ab;
+            color: white;
+            box-shadow: 2px 2px 5px -1px #776262;
+            transition: 0.7s ease-out;
+            outline:none;
+          }
+          button:hover{
+            background: violet;
+            color: white;
           }
       }
-}
 `;
 
-export default function Header () {
+export default function Header (props) {
   const [isOpenDropbox, setIsOpenDropbox] = useState (false);
   return (
     <HeaderStyled>
@@ -172,9 +179,13 @@ export default function Header () {
               <li className="link-style"><Link to="/careers">Careers</Link></li>
             </ul>
           </div>
-          <div className="button-container">
-            <button>Request Invite</button>
-          </div>
+          {props.isLogin
+            ? <button onClick={props.handleLogOut}>
+                LOG OUT
+              </button>
+            : <button onClick={props.openModal}>
+                SIGN IN
+              </button>}
         </div>
       </Wrapper>
     </HeaderStyled>

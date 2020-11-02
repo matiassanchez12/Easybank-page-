@@ -75,6 +75,7 @@ const AboutStyled = styled.div`
 export default function Contact () {
   useEffect (() => {
     Aos.init ({duration: 1400});
+    window.scrollTo (0, 0);
   }, []);
   return (
     <div>
