@@ -90,10 +90,10 @@ export default function Login (props) {
           {hasAccount
             ? <div>
                 <button onClick={handleLogin}>
-                  Login
+                  LOGIN
                   <span>
                     <img
-                      src="https://res.cloudinary.com/matiaskaufman/image/upload/v1604256032/iconfinder_in_6137419_qwjsdi.png"
+                      src="https://res.cloudinary.com/matiaskaufman/image/upload/v1604370489/iconfinder-512_6_tql9rt.png"
                       alt="log"
                     />
                   </span>
@@ -108,9 +108,10 @@ export default function Login (props) {
               </div>
             : <div>
                 <button onClick={handleSignup}>
-                  Sign up<span>
+                  SIGN UP
+                  <span>
                     <img
-                      src="https://res.cloudinary.com/matiaskaufman/image/upload/v1604256050/iconfinder_user_in_6138478_1_zuz7cm.png"
+                      src="https://res.cloudinary.com/matiaskaufman/image/upload/v1604370489/iconfinder-512_6_tql9rt.png"
                       alt="reg"
                     />
                   </span>
