@@ -23,6 +23,7 @@ function App () {
   const [hasAccount, setHasAccount] = useState (true);
   const [modalIsOpen, setIsOpen] = useState (false);
   const [isLogin, setIsLogin] = useState (false);
+  const [isLoading, setIsLoading] = useState (false);
 
   const clearInputs = () => {
     setEmail ('');
@@ -34,6 +35,7 @@ function App () {
   };
 
   const handleLogin = () => {
+    setIsLoading (true);
     clearErrors ();
     fire.auth ().signInWithEmailAndPassword (email, password).catch (err => {
       switch (err.code) {
@@ -42,6 +44,7 @@ function App () {
           break;
         case 'auth/argument-error':
           setEmailError (err.message);
+          break;
         case 'auth/user-disabled':
           setEmailError (err.message);
           break;
@@ -55,13 +58,17 @@ function App () {
           setPasswordError (err.message);
           break;
         default:
-          console.log ('algo salio mal');
+          alert (
+            'We dont know what the problem is. Try again this later, please'
+          );
           break;
       }
+      setIsLoading (false);
     });
   };
 
   const handleSignup = () => {
+    setIsLoading (true);
     clearErrors ();
     fire
       .auth ()
@@ -73,6 +80,7 @@ function App () {
             break;
           case 'auth/argument-error':
             setEmailError (err.message);
+            break;
           case 'auth/invalid-email':
             setEmailError (err.message);
             break;
@@ -80,9 +88,12 @@ function App () {
             setPasswordError (err.message);
             break;
           default:
-            console.log ('algo salio mal');
+            alert (
+              'We dont know what the problem is. Try again this later, please'
+            );
             break;
         }
+        setIsLoading (false);
       });
   };
 
@@ -98,10 +109,11 @@ function App () {
         if (user) {
           clearInputs ();
           setUser (user);
-          setIsLogin (true);
-          closeModal ();
-        } else {
-          setUser ('');
+          setTimeout (() => {
+            setIsOpen (false);
+            setIsLoading (false);
+            setIsLogin (true);
+          }, 1000);
         }
       });
     };
@@ -137,6 +149,7 @@ function App () {
           passwordError={passwordError}
           modalIsOpen={modalIsOpen}
           closeModal={closeModal}
+          isLoading={isLoading}
         />
         <div>
           <Route exact path="/" component={Home} />

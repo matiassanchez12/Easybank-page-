@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import './styles/login.css';
+import {useLoading, BallTriangle} from '@agney/react-loading';
 
 export default function Login (props) {
   const customStyles = {
@@ -29,7 +30,14 @@ export default function Login (props) {
     setHasAccount,
     emailError,
     passwordError,
+    isLoading,
   } = props;
+
+  const {containerProps, indicatorEl} = useLoading ({
+    loading: true,
+    indicator: <BallTriangle width="70" />,
+  });
+
   return (
     <Modal
       isOpen={props.modalIsOpen}
@@ -38,9 +46,7 @@ export default function Login (props) {
       contentLabel="Example Modal"
       ariaHideApp={false}
       shouldCloseOnOverlayClick={false}
-      closeTimeoutMS={1000}
     >
-
       <div className="modal-container">
         <button className="button-close" onClick={props.closeModal}>
           {' '}X
@@ -60,71 +66,76 @@ export default function Login (props) {
               />
               <h3>Create Account</h3>
             </div>}
-
-        <div className="username">
-          <label>Username: </label>
-          <input
-            type="text"
-            autoFocus
-            required
-            value={email}
-            onChange={e => setEmail (e.target.value)}
-          />
-          <p className="errorMsg">
-            {emailError}
-          </p>
-        </div>
-        <div className="password">
-          <label>Password: </label>
-          <input
-            type="password"
-            required
-            value={password}
-            onChange={e => setPassword (e.target.value)}
-          />
-          <p className="errorMsg">
-            {passwordError}
-          </p>
-        </div>
-        <div className="btn-container">
-          {hasAccount
-            ? <div>
-                <button onClick={handleLogin}>
-                  LOGIN
-                  <span>
-                    <img
-                      src="https://res.cloudinary.com/matiaskaufman/image/upload/v1604370489/iconfinder-512_6_tql9rt.png"
-                      alt="log"
-                    />
-                  </span>
-                </button>
-                <p>
-                  Don't have an account?
-                  {' '}
-                  <span onClick={() => setHasAccount (!hasAccount)}>
-                    Sign up
-                  </span>
+        {isLoading
+          ? <section className="loading" {...containerProps}>
+              {indicatorEl}
+            </section>
+          : <div>
+              <div className="username">
+                <label>Username: </label>
+                <input
+                  type="text"
+                  autoFocus
+                  required
+                  value={email}
+                  onChange={e => setEmail (e.target.value)}
+                />
+                <p className="errorMsg">
+                  {emailError}
                 </p>
               </div>
-            : <div>
-                <button onClick={handleSignup}>
-                  SIGN UP
-                  <span>
-                    <img
-                      src="https://res.cloudinary.com/matiaskaufman/image/upload/v1604370489/iconfinder-512_6_tql9rt.png"
-                      alt="reg"
-                    />
-                  </span>
-                </button>
-                <p>
-                  Have an account?
-                  {' '}
-                  <span onClick={() => setHasAccount (!hasAccount)}>
-                    Sign in
-                  </span>
+              <div className="password">
+                <label>Password: </label>
+                <input
+                  type="password"
+                  required
+                  value={password}
+                  onChange={e => setPassword (e.target.value)}
+                />
+                <p className="errorMsg">
+                  {passwordError}
                 </p>
-              </div>}
-        </div>
+              </div>
+              <div className="btn-container">
+                {hasAccount
+                  ? <div>
+                      <button onClick={handleLogin}>
+                        LOGIN
+                        <span>
+                          <img
+                            src="https://res.cloudinary.com/matiaskaufman/image/upload/v1604370489/iconfinder-512_6_tql9rt.png"
+                            alt="log"
+                          />
+                        </span>
+                      </button>
+                      <p>
+                        Don't have an account?
+                        {' '}
+                        <span onClick={() => setHasAccount (!hasAccount)}>
+                          Sign up
+                        </span>
+                      </p>
+                    </div>
+                  : <div>
+                      <button onClick={handleSignup}>
+                        SIGN UP
+                        <span>
+                          <img
+                            src="https://res.cloudinary.com/matiaskaufman/image/upload/v1604370489/iconfinder-512_6_tql9rt.png"
+                            alt="reg"
+                          />
+                        </span>
+                      </button>
+                      <p>
+                        Have an account?
+                        {' '}
+                        <span onClick={() => setHasAccount (!hasAccount)}>
+                          Sign in
+                        </span>
+                      </p>
+                    </div>}
+              </div>
+            </div>}
       </div>
     </Modal>
   );
