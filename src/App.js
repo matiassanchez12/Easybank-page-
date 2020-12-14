@@ -104,19 +104,26 @@ function App () {
     setHasAccount (true);
   };
 
+  // Espero 4 seg, mientras verifico que halla un usuario logeado
+  // caso afirmativo, muestro un boton para que el usuario pueda
+  // salir de su cuenta. En los dos casos, la pantalla de loading
+  // se cierra y se muestra el home de la pagina.
+
   useEffect (() => {
-    const authListener = () => {
-      fire.auth ().onAuthStateChanged (user => {
-        if (user) {
-          clearInputs ();
-          setIsOpen (false);
-          setIsLoading (false);
-          setIsLogin (true);
-        }
-        setLoading (false);
-      });
-    };
-    authListener ();
+    setTimeout (() => {
+      const authListener = () => {
+        fire.auth ().onAuthStateChanged (user => {
+          if (user) {
+            clearInputs ();
+            setIsOpen (false);
+            setIsLoading (false);
+            setIsLogin (true);
+          }
+          setLoading (false);
+        });
+      };
+      authListener ();
+    }, 4000);
   }, []);
 
   function openModal () {
