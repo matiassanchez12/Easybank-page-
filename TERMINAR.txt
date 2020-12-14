@@ -1,0 +1,2 @@
+Para terminar, al comenzar la pagina debe cargar con un loading 
+5 segundos antes de mostrar el contenido

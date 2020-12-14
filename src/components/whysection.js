@@ -142,7 +142,7 @@ export default function Whysection () {
             </div>
           </div>
           <div className="icon-arrowup" onClick={() => scroll.scrollToTop ()}>
-            <i class="fas fa-arrow-alt-circle-up" />
+            <i className="fas fa-arrow-alt-circle-up" />
           </div>
         </div>
       </Wrapper>

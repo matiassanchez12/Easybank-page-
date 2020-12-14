@@ -4,6 +4,8 @@ import Whysection from '../components/whysection';
 import LatestArticles from '../components/latest-article';
 
 export default function Home () {
+  //Sirve para cuando entro a la pagina "home"
+  //aparezca la info desde el comienzo
   useEffect (() => {
     window.scrollTo (0, 0);
   });

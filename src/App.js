@@ -7,6 +7,7 @@ import Careers from './pages/careers';
 import Header from './components/header';
 import Footer from './components/footer';
 import Login from './components/login';
+import Loading from './pages/loading';
 
 import {Route} from 'react-router-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
@@ -15,7 +16,7 @@ import fire from './firebase-config';
 import './App.css';
 
 function App () {
-  const [user, setUser] = useState ('');
+  const [loading, setLoading] = useState (true);
   const [password, setPassword] = useState ('');
   const [email, setEmail] = useState ('');
   const [passwordError, setPasswordError] = useState ('');
@@ -108,13 +109,11 @@ function App () {
       fire.auth ().onAuthStateChanged (user => {
         if (user) {
           clearInputs ();
-          setUser (user);
-          setTimeout (() => {
-            setIsOpen (false);
-            setIsLoading (false);
-            setIsLogin (true);
-          }, 1000);
+          setIsOpen (false);
+          setIsLoading (false);
+          setIsLogin (true);
         }
+        setLoading (false);
       });
     };
     authListener ();
@@ -128,40 +127,44 @@ function App () {
     setIsOpen (false);
   }
 
-  return (
-    <div>
-      <Router>
-        <Header
-          openModal={openModal}
-          isLogin={isLogin}
-          handleLogOut={handleLogOut}
-        />
-        <Login
-          email={email}
-          setEmail={setEmail}
-          password={password}
-          setPassword={setPassword}
-          handleLogin={handleLogin}
-          handleSignup={handleSignup}
-          hasAccount={hasAccount}
-          setHasAccount={setHasAccount}
-          emailError={emailError}
-          passwordError={passwordError}
-          modalIsOpen={modalIsOpen}
-          closeModal={closeModal}
-          isLoading={isLoading}
-        />
-        <div>
-          <Route exact path="/" component={Home} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/blog" component={Blog} />
-          <Route path="/careers" component={Careers} />
-          <Route path="/about" component={About} />
-        </div>
-        <Footer />
-      </Router>
-    </div>
-  );
+  if (loading) {
+    return <Loading />;
+  } else {
+    return (
+      <div>
+        <Router>
+          <Header
+            openModal={openModal}
+            isLogin={isLogin}
+            handleLogOut={handleLogOut}
+          />
+          <Login
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            handleLogin={handleLogin}
+            handleSignup={handleSignup}
+            hasAccount={hasAccount}
+            setHasAccount={setHasAccount}
+            emailError={emailError}
+            passwordError={passwordError}
+            modalIsOpen={modalIsOpen}
+            closeModal={closeModal}
+            isLoading={isLoading}
+          />
+          <div>
+            <Route exact path="/" component={Home} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/blog" component={Blog} />
+            <Route path="/careers" component={Careers} />
+            <Route path="/about" component={About} />
+          </div>
+          <Footer />
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
