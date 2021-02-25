@@ -44,7 +44,7 @@ const ContactStyled = styled.div`
     width: 100%;
   }
   .form-container{
-    background: var(--lightGray);
+    background: #c7bfbf;
     margin: 0 -130px;
     padding: 2em 130px;
     display:flex;
