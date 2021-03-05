@@ -1,20 +1,21 @@
-import React, {useEffect} from 'react';
-import styled from 'styled-components';
-import Wrapper from '../components/wrapper';
+import React, { useEffect } from "react";
+import styled from "styled-components";
+import Wrapper from "../components/wrapper";
+import emailjs from 'emailjs-com';
 
 const ContactStyled = styled.div`
-  
-  h1{ 
+  h1 {
     color: var(--darkBlue);
   }
-  h2{ 
+  h2 {
     color: var(--darkBlue);
   }
-  h3{ 
+  h3 {
     color: var(--darkBlue);
   }
-  .main-img{
-    background: url("https://images.unsplash.com/photo-1488998527040-85054a85150e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80") top no-repeat;
+  .main-img {
+    background: url("https://images.unsplash.com/photo-1488998527040-85054a85150e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80")
+      top no-repeat;
     background-size: 100% 480px;
     height: 350px;
     padding: 5em;
@@ -24,47 +25,47 @@ const ContactStyled = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     color: var(--darkBlue);
-    h1{
+    h1 {
       font-size: 3em;
     }
-    p{
+    p {
       font-size: 2em;
     }
   }
-  .info-container{
-    display:grid;
+  .info-container {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     padding-top: 3em;
-    .ubication{
+    .ubication {
       justify-self: center;
     }
   }
-  iframe{
-    padding:2em 0;
+  iframe {
+    padding: 2em 0;
     width: 100%;
   }
-  .form-container{
-    background: #cbd1ff;
+  .form-container {
+    background: #c7bfbf;
     margin: 0 -130px;
     padding: 2em 130px;
-    display:flex;
+    display: flex;
     flex-direction: column;
-    button{
-        padding: .8em 4em;
-        border: 0;
-        border-radius: 80px;
-        color: white;
-        background: #c7a5a5;
-        transition: 0.7s ease-out;
-        cursor:pointer;
-        position: relative;
-        left: 23%;
-        font-size: 1.2em;
-      }
-      button:hover{
-        background: #a98c8c;
-      }
-    form{
+    button {
+      padding: 0.8em 4em;
+      border: 0;
+      border-radius: 80px;
+      color: white;
+      background: #c7a5a5;
+      transition: 0.7s ease-out;
+      cursor: pointer;
+      position: relative;
+      left: 23%;
+      font-size: 1.2em;
+    }
+    button:hover {
+      background: #a98c8c;
+    }
+    form {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-row-gap: 1.5em;
@@ -74,29 +75,42 @@ const ContactStyled = styled.div`
       border-radius: 5px;
       justify-items: end;
     }
-    .item-form{
+    .item-form {
       display: flex;
       flex-direction: column;
       width: 80%;
-      label{
+      label {
         color: white;
-        margin-bottom: .5em;
+        margin-bottom: 0.5em;
       }
-      input{
+      input {
         width: 80%;
         height: 20px;
       }
-      .comment-input{
-        width:200%;
-        height:80px;
+      .comment-input {
+        width: 200%;
+        height: 80px;
       }
     }
   }
 `;
-export default function Contact () {
-  useEffect (() => {
-    window.scrollTo (0, 0);
+export default function Contact() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
   });
+
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('gmail', 'youtube_template', e.target, 'user_2le8hSeLDMHWpceRWQpZK')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      e.target.reset();
+  }
+
   return (
     <ContactStyled>
       <Wrapper>
@@ -107,20 +121,30 @@ export default function Contact () {
           </div>
           <div className="info-container">
             <div className="contact-info">
-              <h1>
-                Choice we service!
-              </h1>
+              <h1>Choice we service!</h1>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, culpa? Doloribus nobis, ea maxime velit ad dicta asperiores consectetur pariatur in deleniti illo dolore, itaque expedita rerum odit omnis perferendis!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam,
+                culpa? Doloribus nobis, ea maxime velit ad dicta asperiores
+                consectetur pariatur in deleniti illo dolore, itaque expedita
+                rerum odit omnis perferendis!
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, culpa? Doloribus nobis, ea maxime velit ad dicta asperiores consectetur pariatur in deleniti illo dolore, itaque expedita rerum odit omnis perferendis!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam,
+                culpa? Doloribus nobis, ea maxime velit ad dicta asperiores
+                consectetur pariatur in deleniti illo dolore, itaque expedita
+                rerum odit omnis perferendis!
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, culpa? Doloribus nobis, ea maxime velit ad dicta asperiores consectetur pariatur in deleniti illo dolore, itaque expedita rerum odit omnis perferendis!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam,
+                culpa? Doloribus nobis, ea maxime velit ad dicta asperiores
+                consectetur pariatur in deleniti illo dolore, itaque expedita
+                rerum odit omnis perferendis!
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, culpa? Doloribus nobis, ea maxime velit ad dicta asperiores consectetur pariatur in deleniti illo dolore, itaque expedita rerum odit omnis perferendis!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam,
+                culpa? Doloribus nobis, ea maxime velit ad dicta asperiores
+                consectetur pariatur in deleniti illo dolore, itaque expedita
+                rerum odit omnis perferendis!
               </p>
             </div>
             <div className="ubication">
@@ -147,10 +171,11 @@ export default function Contact () {
           <div className="form-container">
             <h1>Contact Us Now!</h1>
             <h2>Your Information</h2>
-            <form>
+            <form onSubmit={sendEmail}>
+              <input type="text" style={{display: "none"}} name="subject" defaultValue="Mail de consulta - Hospital"></input>
               <div className="item-form">
                 <label>First Name*</label>
-                <input type="text" name="firstName" />
+                <input type="text" name="firstname" />
               </div>
               <div className="item-form">
                 <label>Last Name*</label>
@@ -174,14 +199,11 @@ export default function Contact () {
               </div>
               <div className="item-form">
                 <label>Comments</label>
-                <input type="text" name="comments" className="comment-input" />
+                <textarea rows="3" type="text" name="message" className="comment-input"/>
               </div>
               <div className="item-form" />
-              <button>
-                Send!
-              </button>
+              <button type="submit" className="btn btn-info text-black">Send</button>
             </form>
-
           </div>
         </div>
       </Wrapper>

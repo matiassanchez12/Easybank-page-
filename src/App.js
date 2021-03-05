@@ -60,7 +60,7 @@ function App () {
           break;
         default:
           alert (
-            'We dont know what the problem is. Try again this later, please'
+            'We dont know what the problem is. Try again this later please.'
           );
           break;
       }
