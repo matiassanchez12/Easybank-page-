@@ -2,41 +2,78 @@ import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import Wrapper from '../components/wrapper';
 import Aos from 'aos';
+import {Link} from 'react-scroll';
 import 'aos/dist/aos.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const AboutStyled = styled.div`
    padding: 5em 0;
+   .text-container{
+        display: grid;
+        grid-template-areas: "icon1 card1 a"
+                             "c card2 icon2";
+        grid-template-columns: 200px 400px 200px;
+        grid-template-rows: 400px 400px;
+        grid-row-gap: 2em;
+        grid-column-gap: 5em;
+        margin: 0 -130px;
+        padding: 80px 424px;
+        justify-content: center;
+        background: #e0eaf5;
+        .icon-bank-1{
+          background:none;
+          grid-area: icon1;
+          align-self: center;
+          img{
+            width: 250px;
+            height: 250px;
+            border: 1px solid #7B7E8E;
+            border-radius: 12px;
+          }
+        }
+        .icon-bank-2{
+          background:none;
+          grid-area: icon2;
+          align-self: center;
+          img{
+            width: 250px;
+            height: 250px;
+            padding: 10px;
+            border: 1px solid #7B7E8E;
+            border-radius: 12px;
+          }
+        }
+        .card-1{
+          grid-area: card1;
+        }
+        .card-2{
+          grid-area: card2;
+        }
+    }
+    .card-style{
+      box-shadow:0 10px 29px 0 rgb(80 100 144 / 30%);
+      border-radius: .35rem!important;
+      box-sizing: border-box;
+      transition: all 0.5s ease-in-out;
+    }
+   .card-style:hover{
+      box-shadow:0 10px 40px 0 rgb(80 98 138 / 130%); 
+   }
    .info-container{
-       display: grid;
-       grid-row-gap: 4em;
-       grid-template-columns: 1fr 1fr;
-       grid-template-areas: "img title"
-                            "img title"
-                            "text text";
+    display:grid;
+    grid-template-columns: 1fr 1fr;
     .main-img{
         position:relative;
         right: 40px;
-        grid-area: img;
         width: 100%;
     }
     .title{
         text-align: center;
-        grid-area: title;
         align-self: center;
         color: var(--darkBlue);
         .main-title{
-            margin-bottom: 2em;
-        }
-    }
-    .text-container{
-        grid-area:text;
-        display: flex;
-        margin: 2em 5em;
-        p{
-            border-top: 1px solid #9464c1;
-            border-bottom: 1px solid #9464c1;
-            padding: 20px 0;
-            margin: 0 1.8em;
+            margin-bottom: 1em;
+            letter-spacing: 15px;
         }
     }
    }
@@ -55,17 +92,20 @@ const AboutStyled = styled.div`
        .item-icon{
            background: var(--gray);
            padding: 1em;
+           text-align: justify;
         .subtitle{
             font-size: 1em;
             padding: 1em 0;
             color: var(--darkBlue);
             display:inline-flex;
+            width: 100%;
+            height: 100px;
             h3{
                 padding-left: .5em;
                 margin: 0;
             }
             i{
-                font-size: 1.3em;
+                font-size: 42px;
             }
         }
        }
@@ -82,34 +122,55 @@ export default function Contact () {
       <AboutStyled>
         <Wrapper>
           <div>
-            <div className="info-container">
+            <div className="info-container pb-4 mb-5">
               <img
                 src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
                 alt="main-img"
-                className="main-img"
+                className="main-img shadow p-3 mb-5 bg-white rounded"
               />
               <div className="title">
-                <h1 className="main-title">ABOUT</h1>
-                <h1>
-                  "Somos los mejores haciendo lo que hacemos. Porque? No hay porque"
-                </h1>
+                <h1 className="main-title">SOBRE NOSOTROS</h1>
+                <h3>
+                  "Con una trayectoria de 25 años nos destacamos en el mercado, brindando soluciones claras y rapidas a nuestros clientes"
+                </h3>
+                <Link className="btn btn-primary mt-3" activeClass="active" to="section1" spy={true} smooth={true} duration={500}>
+                  Conocer más!
+               </Link>
               </div>
-              <div className="text-container">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, possimus id delectus, itaque commodi veritatis laborum soluta, sapiente dicta consectetur cum quisquam rem quasi iure! Minima suscipit sunt earum nam.
-                  {' '}
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione facere molestiae magni suscipit animi iure at facilis totam, error harum voluptatem ipsum eum veritatis reprehenderit non! Velit unde officiis facere!
-                </p>
-              </div>
+            </div>
+            <div className="text-container pb-5 mb-5">
+                <div class="card bg-light card-style card-1" >
+                  <h3 class="card-header text-center">Nuestra Mision...</h3>
+                  <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+                <div class="card bg-light card-style card-2">
+                  <h3 class="card-header text-center">Nuestra Vision...</h3>
+                  <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+                <section className="icon-bank-1">
+                  <img src="https://res.cloudinary.com/matiaskaufman/image/upload/v1616779347/iconbank-2_dqt90m.png" alt="img"/>
+                </section>
+                <section className="icon-bank-2">
+                  <img src="https://res.cloudinary.com/matiaskaufman/image/upload/v1616779348/iconbank-1_gwcu4l.png" alt="img"/>
+                </section>
             </div>
             <img
               src="https://images.unsplash.com/photo-1549637642-90187f64f420?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=753&q=80"
               alt="second-img"
               className="second-img"
+              id="section1"
             />
-            <div className="icons-container">
+            <div className="icons-container" >
 
               <div className="item-icon" data-aos="flip-right">
                 <div>

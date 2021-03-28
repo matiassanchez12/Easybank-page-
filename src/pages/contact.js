@@ -30,6 +30,7 @@ const ContactStyled = styled.div`
     }
     p {
       font-size: 2em;
+      letter-spacing: 2em;
     }
   }
   .info-container {
@@ -39,58 +40,26 @@ const ContactStyled = styled.div`
     .ubication {
       justify-self: center;
     }
+    .contact-info{
+      border: 2px solid #ff826b;
+      padding: 17px;
+      border-radius: 20px;
+    }
   }
   iframe {
     padding: 2em 0;
     width: 100%;
   }
   .form-container {
-    background: #c7bfbf;
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
     margin: 0 -130px;
     padding: 2em 130px;
     display: flex;
     flex-direction: column;
-    button {
-      padding: 0.8em 4em;
-      border: 0;
-      border-radius: 80px;
-      color: white;
-      background: #c7a5a5;
-      transition: 0.7s ease-out;
-      cursor: pointer;
-      position: relative;
-      left: 23%;
-      font-size: 1.2em;
-    }
-    button:hover {
-      background: #a98c8c;
-    }
-    form {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-row-gap: 1.5em;
-      justify-items: center;
-      padding: 3.3em 0;
-      background: hsl(233deg 25% 58%);
-      border-radius: 5px;
-      justify-items: end;
-    }
-    .item-form {
-      display: flex;
-      flex-direction: column;
-      width: 80%;
-      label {
-        color: white;
-        margin-bottom: 0.5em;
-      }
-      input {
-        width: 80%;
-        height: 20px;
-      }
-      .comment-input {
-        width: 200%;
-        height: 80px;
-      }
+    form{
+      color:white;
+      margin: 0 200px;
     }
   }
 `;
@@ -116,8 +85,6 @@ export default function Contact() {
       <Wrapper>
         <div>
           <div className="main-img">
-            <h1>Contact</h1>
-            <h2>We have the best comunicator team, for help u right now!</h2>
           </div>
           <div className="info-container">
             <div className="contact-info">
@@ -150,7 +117,7 @@ export default function Contact() {
             <div className="ubication">
               <h3>Main Office</h3>
               <p>8888 Fake street Center</p>
-              <p>Oklahoma, CO 22222</p>
+              <p className="border-bottom border-secondary mb-3 pb-3">Oklahoma, CO 22222</p>
               <h3>Direct Contact</h3>
               <p>Phone: 1111111111</p>
               <p>Toll free: 2322323232</p>
@@ -158,6 +125,7 @@ export default function Contact() {
             </div>
           </div>
           <iframe
+            className="mt-5 mb-5"
             width="520"
             height="400"
             frameBorder="0"
@@ -169,40 +137,25 @@ export default function Contact() {
             src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=%20Monte%20Grande+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
           />
           <div className="form-container">
-            <h1>Contact Us Now!</h1>
-            <h2>Your Information</h2>
             <form onSubmit={sendEmail}>
+              <h1 className="mx-auto text-white">Contact Us Now!</h1>
+              <p>Please complete this form for contact us...</p>
               <input type="text" style={{display: "none"}} name="subject" defaultValue="Mail de consulta - Hospital"></input>
-              <div className="item-form">
-                <label>First Name*</label>
-                <input type="text" name="firstname" />
+              <div className="form-group pt-3">
+                <label className="font-weight-bold" for="exampleFormControlInput1">Name*</label>
+                <input type="name" className="form-control" id="exampleFormControlInput1" placeholder="Name Lastname" />
               </div>
-              <div className="item-form">
-                <label>Last Name*</label>
-                <input type="text" name="lastname" />
+              <div className="form-group">
+                <label className="font-weight-bold" for="exampleFormControlInput1">Email address*</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
               </div>
-              <div className="item-form">
-                <label>Job Title*</label>
-                <input type="text" name="jobtitle" />
+              <div className="form-group">
+                <label className="font-weight-bold" for="exampleFormControlTextarea1">Message*</label>
+                <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your Message..."></textarea>
               </div>
-              <div className="item-form">
-                <label>Phone Number*</label>
-                <input type="text" name="phone" />
+              <div className="text-center mt-5 mb-5">
+                <button type="submit" className="btn btn-primary btn-block text-white shadow-lg">Send Message</button>
               </div>
-              <div className="item-form">
-                <label>Email*</label>
-                <input type="text" name="email" />
-              </div>
-              <div className="item-form">
-                <label>State</label>
-                <input type="text" name="state" />
-              </div>
-              <div className="item-form">
-                <label>Comments</label>
-                <textarea rows="3" type="text" name="message" className="comment-input"/>
-              </div>
-              <div className="item-form" />
-              <button type="submit" className="btn btn-info text-black">Send</button>
             </form>
           </div>
         </div>

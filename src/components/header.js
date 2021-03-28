@@ -126,15 +126,11 @@ const HeaderStyled = styled.div`
             padding: 1em 2.6em;
             border: none;
             cursor: pointer;
-            background: #d0c0ab;
-            color: white;
+            /* background: #d0c0ab;
+            color: white; */
             box-shadow: 2px 2px 5px -1px #776262;
             transition: 0.7s ease-out;
             outline:none;
-          }
-          button:hover{
-            background: violet;
-            color: white;
           }
       }
 `;
@@ -180,10 +176,10 @@ export default function Header (props) {
             </ul>
           </div>
           {props.isLogin
-            ? <button onClick={props.handleLogOut}>
+            ? <button className="btn btn-secondary" onClick={props.handleLogOut}>
                 LOG OUT
               </button>
-            : <button onClick={props.openModal}>
+            : <button className= "btn btn-secondary" onClick={props.openModal}>
                 SIGN IN
               </button>}
         </div>

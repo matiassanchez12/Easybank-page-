@@ -1,7 +1,9 @@
 import React, {useEffect} from 'react';
 import styled from 'styled-components';
-
 import Wrapper from '../components/wrapper';
+
+import Carousel from '../components/carousel.js';
+import {Link} from 'react-scroll';
 
 const CareersStyled = styled.div`
    .information-container{
@@ -30,21 +32,6 @@ const CareersStyled = styled.div`
       margin: 4.4em -140px;
       height: 450px;
       color: white;
-      button{
-        padding: 0.4em 2em;
-        border-radius: 6px;
-        border: none;
-        outline: none;
-        font-size: 1.1em;
-        background: gray;
-        cursor: pointer;
-        color: white;
-        transition: 0.3s ease-out;
-        margin-top: 3em;
-      }
-      button:hover {
-        background: #757373;
-      }
       h1{
         font-size: 2.4em;
         margin-bottom: 2em;
@@ -64,9 +51,17 @@ export default function Contact () {
           <div className="main-section">
             <h1>Get your dream job!</h1>
             <h3>In this company work is equal to having fun.</h3>
-            <button>Search a job</button>
+            <Link className="btn btn-secondary" activeClass="active" to="section1" spy={true} smooth={true} duration={500}>
+            Search a job
+            </Link>
           </div>
-          <div className="information-container">
+          <div>
+            <p>Hacer un filtrar</p>
+            <p>Poner Ultimas ofertas en el carrousel y cuando pongo mostrar mas, aparece mas informacion del puesto</p>
+            <p>Mostrar una lista con todos los trabajos</p>
+            <Carousel></Carousel>
+          </div>
+          <div className="information-container" id="section1">
             <h1>
               The main objective is to make our
               {' '}
@@ -75,7 +70,7 @@ export default function Contact () {
               clients feel good and also our employees
             </h1>
             <h3>For this..</h3>
-            <div className="items-container">
+            <div className="items-container" >
               <span className="icon-company">
                 <img
                   src="https://res.cloudinary.com/matiaskaufman/image/upload/v1604350103/svg/087-location_pin_fsvvic.svg"

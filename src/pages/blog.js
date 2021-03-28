@@ -1,8 +1,7 @@
 import React, {useEffect} from 'react';
+
 import styled from 'styled-components';
 import Wrapper from '../components/wrapper';
-
-import Carousel from 'react-elastic-carousel';
 
 const BlogStyled = styled.div`
     .carousel-container{
@@ -92,40 +91,12 @@ export default function Contact () {
     <BlogStyled>
       <Wrapper>
         <div className="carousel-container">
-          <Carousel>
-            <div className="img-item">
-              <img
-                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-                alt="img"
-              />
-              <div className="text-img">
-                <h1>Know more about us</h1>
-                <button>Show more!</button>
-              </div>
-            </div>
-            <div className="img-item">
-              <img
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80"
-                alt="img"
-              />
-              <div className="text-img">
-                <h1>Know more about us</h1>
-                <button>Show more!</button>
-              </div>
-            </div>
-            <div className="img-item">
-              <img
-                src="https://images.unsplash.com/photo-1464746133101-a2c3f88e0dd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=727&q=80"
-                alt="img"
-              />
-              <div className="text-img">
-                <h1>Know more about us</h1>
-                <button>Enter!</button>
-              </div>
-            </div>
-          </Carousel>
         </div>
+
         <h1 className="blogs-title">-Blog Section-</h1>
+        <p>Mostrar un candado si no hay un usuario logeado con un mensaje de que es necesario loguearse para 
+        ver los blogs</p>
+        <p>Hacer un ABM de post- Colocar un buton en la parte de abajo con la opcion de agregarun nuevo post</p>
 
         <div className="post-container">
           <div className="post-item">

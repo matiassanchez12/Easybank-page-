@@ -16,7 +16,8 @@ import fire from './firebase-config';
 import './App.css';
 
 function App () {
-  const [loading, setLoading] = useState (true);
+  //Cambiar a true el loading para que cargue al inicio de la pagina
+  const [loading, setLoading] = useState (false);
   const [password, setPassword] = useState ('');
   const [email, setEmail] = useState ('');
   const [passwordError, setPasswordError] = useState ('');

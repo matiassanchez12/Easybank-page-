@@ -82,7 +82,7 @@ const StyledSection = styled.div`
 
 export default function Whysection () {
   useEffect (() => {
-    Aos.init ({duration: 1300});
+    Aos.init ({duration: 1000});
   }, []);
 
   return (
