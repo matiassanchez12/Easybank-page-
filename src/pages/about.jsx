@@ -129,41 +129,16 @@ export default function Contact () {
                 className="main-img shadow p-3 mb-5 bg-white rounded"
               />
               <div className="title">
-                <h1 className="main-title">SOBRE NOSOTROS</h1>
+                <h1 className="main-title">ABOUT US</h1>
                 <h3>
-                  "Con una trayectoria de 25 años nos destacamos en el mercado, brindando soluciones claras y rapidas a nuestros clientes"
+                  "With a history of 25 years we stand out in the market, providing clear and fast solutions to our clients"
                 </h3>
                 <Link className="btn btn-primary mt-3" activeClass="active" to="section1" spy={true} smooth={true} duration={500}>
-                  Conocer más!
+                  More info!
                </Link>
               </div>
             </div>
-            <div className="text-container pb-5 mb-5">
-                <div class="card bg-light card-style card-1" >
-                  <h3 class="card-header text-center">Nuestra Mision...</h3>
-                  <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  </div>
-                </div>
-                <div class="card bg-light card-style card-2">
-                  <h3 class="card-header text-center">Nuestra Vision...</h3>
-                  <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  </div>
-                </div>
-                <section className="icon-bank-1">
-                  <img src="https://res.cloudinary.com/matiaskaufman/image/upload/v1616779347/iconbank-2_dqt90m.png" alt="img"/>
-                </section>
-                <section className="icon-bank-2">
-                  <img src="https://res.cloudinary.com/matiaskaufman/image/upload/v1616779348/iconbank-1_gwcu4l.png" alt="img"/>
-                </section>
-            </div>
+           
             <img
               src="https://images.unsplash.com/photo-1549637642-90187f64f420?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=753&q=80"
               alt="second-img"

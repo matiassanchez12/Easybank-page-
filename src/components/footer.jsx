@@ -167,7 +167,6 @@ export default function Footer () {
           <div className="options-container">
             <span className="item-option">About Us</span>
             <span className="item-option">Contact</span>
-            <span className="item-option">Blog</span>
             <span className="item-option">Careers</span>
             <span className="item-option">Support</span>
             <span className="item-option">Privacy Policy</span>

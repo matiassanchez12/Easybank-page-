@@ -1,8 +1,6 @@
 import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import Wrapper from '../components/wrapper';
-
-import Carousel from '../components/carousel.js';
 import {Link} from 'react-scroll';
 
 const CareersStyled = styled.div`
@@ -54,12 +52,6 @@ export default function Contact () {
             <Link className="btn btn-secondary" activeClass="active" to="section1" spy={true} smooth={true} duration={500}>
             Search a job
             </Link>
-          </div>
-          <div>
-            <p>Hacer un filtrar</p>
-            <p>Poner Ultimas ofertas en el carrousel y cuando pongo mostrar mas, aparece mas informacion del puesto</p>
-            <p>Mostrar una lista con todos los trabajos</p>
-            <Carousel></Carousel>
           </div>
           <div className="information-container" id="section1">
             <h1>
